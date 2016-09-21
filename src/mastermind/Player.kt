@@ -5,6 +5,8 @@ import java.util.*
 interface Player {
     fun guess(): String
     fun receiveEvaluation(complete: Boolean, positions: Int, letters: Int)
+    fun incorrectInput(guess: String) {
+    }
 }
 
 class RealPlayer : Player {
@@ -21,5 +23,9 @@ class RealPlayer : Player {
         } else {
             println("Positions: $positions; letters: $letters.")
         }
+    }
+
+    override fun incorrectInput(guess: String) {
+        println("Incorrect input: $guess. It should consist of 4 letters (A, B, C, D, E, F).")
     }
 }
